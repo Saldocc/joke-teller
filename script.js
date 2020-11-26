@@ -1,8 +1,13 @@
 const audioElement = document.querySelector("#audio");
 const button = document.querySelector("#button");
+const laughAudio = document.querySelector("#laugh");
 
 function toggleButton() {
   button.disabled = !button.disabled;
+}
+
+function laugh() {
+  laughAudio.play();
 }
 
 //String to voice function
@@ -40,4 +45,5 @@ async function getJokes() {
 }
 
 button.addEventListener("click", getJokes);
-audioElement.addEventListener("ended", toggleButton);
+audioElement.addEventListener("ended", laugh);
+laughAudio.addEventListener("ended", toggleButton);
